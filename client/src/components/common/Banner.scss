@@ -1,0 +1,11 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+$bpoints: map-keys($grid-breakpoints);
+
+@each $bpoint in $bpoints {
+  @include media-breakpoint-up($bpoint) {
+    .banner-text {
+      font-size: $font-size-base + index($bpoints, $bpoint) * 2rem;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "seathereum",
+  "version": "1.0.0",
+  "description": "virtual pet interactive dapp",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix client",
+    "client-install": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "truffle": "cd client/src/truffle; truffle compile; truffle migrate",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshwashywash/Seathereum.git"
+  },
+  "author": "",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/joshwashywash/Seathereum/issues"
+  },
+  "homepage": "https://github.com/joshwashywash/Seathereum#readme",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.4",
+    "node-sass": "^4.11.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
+  }
+}

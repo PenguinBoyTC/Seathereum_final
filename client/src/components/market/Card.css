@@ -1,0 +1,14 @@
+.card {
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+/* .card:hover,
+.back {
+  transform: rotateY(180deg);
+} */
+
+.front,
+.back {
+  backface-visibility: hidden;
+}
