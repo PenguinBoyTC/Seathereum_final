@@ -1,9 +1,11 @@
 pragma solidity ^0.5.0;
 
 import "./AquariumGarden.sol";
+import "./ERC721.sol";
 
-contract Ownership is AquariumGarden {
-
+contract Ownership is AquariumGarden, ERC721 {
+    event DisApproval();
+    
     function balanceOf(address _owner) public view returns (uint256 _balance) {
         return ownerSeabyCount[_owner];
     }
@@ -26,11 +28,12 @@ contract Ownership is AquariumGarden {
     function approve(address _to, uint256 _tokenId) public {
         require(_isOwns(msg.sender, _tokenId));
         seabyApprovals[_tokenId] = _to;
-        //emit Approval(msg.sender, _to, _tokenId);
+        emit Approval(msg.sender, _to, _tokenId);
     }
     function disApprove(uint256 _tokenId) public {
         require(_isOwns(msg.sender, _tokenId));
         seabyApprovals[_tokenId] = msg.sender;
+        emit DisApproval();
     }
 
     function takeOwnership(uint256 _tokenId) public {

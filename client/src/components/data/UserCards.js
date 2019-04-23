@@ -34,7 +34,7 @@ class UserCards extends Component {
   state = { dataKey: null };
   componentDidMount() {
     const { drizzle, drizzleState } = this.props;
-    const contract = drizzle.contracts.SeabyBase;
+    const contract = drizzle.contracts.Auction;
     // let drizzle know we want to watch the `myString` method
     // const dataKey = contract.methods["getAllSeabies"].cacheCall();
 
@@ -49,10 +49,10 @@ class UserCards extends Component {
 
   render() {
     // get the contract state from drizzleState
-    const { SeabyBase } = this.props.drizzleState.contracts;
+    const { Auction } = this.props.drizzleState.contracts;
     // using the saved `dataKey`, get the variable   we're interested in
-    // const getAllSeabies = SeabyBase.getAllSeabies[this.state.dataKey];
-    const getAllSeabies = SeabyBase.getSeabiesByOwner[this.state.dataKey];
+    // const getAllSeabies = Auction.getAllSeabies[this.state.dataKey];
+    const getAllSeabies = Auction.getSeabiesByOwner[this.state.dataKey];
 
     if (!getAllSeabies) {
       return <p>"Loading Seaby..."</p>;

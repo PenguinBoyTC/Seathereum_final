@@ -3,34 +3,36 @@ import "../market/Card.css";
 import React, { Component } from "react";
 
 import inkfish from "../../images/inkfish.png";
+import octopus from "../../images/octopus.png";
+import turtle from "../../images/turtle.png";
 
-import Purchasing from "../market/Purchasing";
+import SeabyInfor from "../market/SeabyInfor";
 
 import Button from "@material-ui/core/Button";
 
 //npm i @material-ui/core --save
 //npm install react-router-dom
-
+const images = [inkfish, octopus, turtle];
 class UserCard extends Component {
   //state = { name: this.props.name, desc: this.props.desc };
-  state = { dataKey: null, id: this.props.id };
+  state = { dataKey: null, dataKey2: null, id: this.props.id };
   componentDidMount() {
     const { drizzle } = this.props;
   
-    const contract = drizzle.contracts.SeabyBase;
+    const contract = drizzle.contracts.Auction;
    
     // let drizzle know we want to watch the `myString` method
     const dataKey = contract.methods["getSeabyById"].cacheCall(this.state.id);
-
+    const dataKey2 = contract.methods["getFeaturesById"].cacheCall(this.state.id);
     // save the `dataKey` to local component state for later reference
-    this.setState({ dataKey, id: this.state.id });
+    this.setState({ dataKey, dataKey2, id: this.state.id });
   }
 
   handleChangeStatus = () => {
     console.log("Buy", this.state.id);
     console.log("account:", this.props.drizzleState.accounts);
     const { drizzle, drizzleState } = this.props;
-    const contract = drizzle.contracts.SeabyBase;
+    const contract = drizzle.contracts.Auction;
     const stackId = contract.methods["changeForSaleStatus"].cacheSend(this.state.id, {
       from: drizzleState.accounts[0],
       gas: 3000000
@@ -57,25 +59,27 @@ class UserCard extends Component {
   
   render() {
     // get the contract state from drizzleState
-    const { SeabyBase } = this.props.drizzleState.contracts;
+    const { Auction } = this.props.drizzleState.contracts;
     // using the saved `dataKey`, get the variable   we're interested in
-    const getSeabyById = SeabyBase.getSeabyById[this.state.dataKey];
+    const getSeabyById = Auction.getSeabyById[this.state.dataKey];
+    const getFeaturesById = Auction.getFeaturesById[this.state.dataKey2];
 
-    if (!getSeabyById) {
+    if (!getSeabyById || !getFeaturesById) {
       return <p>"Loading Seaby..."</p>;
     } else {
       const creature = getSeabyById.value;
+      const imageId = getFeaturesById.value[3];
       return (
         <div className="card text-center border-0 bg-light">
           <div className="front">
-            <img className="card-img-top w-auto" src={inkfish} alt="" />
+            <img className="card-img-top w-auto" src={images[imageId]} alt="" />
           </div>
           <div className="back card-body w-100 position-absolute">
             <h4 className="card-title">{this.state.name}</h4>
             <p className="card-text">{this.state.desc}</p>
           </div>
           <div>
-            <Purchasing
+            <SeabyInfor
               name={creature.name}
               birthTime={creature.birthTime}
               generation={creature.generation}

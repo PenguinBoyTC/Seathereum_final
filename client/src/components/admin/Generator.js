@@ -4,12 +4,16 @@ import {DrizzleContext} from 'drizzle-react';
 
 class Generator extends React.Component {
   state = { stackId: null };
-  
-  updateDefaultAccount = async () => {
-    const web3 = this.state.web3;
-    const accounts = await web3.eth.getAccounts();
-    this.setState({defaultAccount: accounts[0].toString()});
-  };
+  // componentDidUpdate() {
+    
+  //   const { drizzle, drizzleState } = this.props;
+  //   console.log("state:", drizzle);
+  //   console.log("state2:", drizzleState.contract);
+  //   if (drizzleState.contract) {
+  //     console.log("state3:", drizzleState.contract.Auction.events);
+  //   }
+  //   //console.log("state2:", drizzleState.contract.Auction.events);
+  // }
   handleKeyDown = e => {
     // if the enter key is pressed, set the value with the string
     if (e.keyCode === 13) {
@@ -19,16 +23,14 @@ class Generator extends React.Component {
 
   createRandomSeaby = name => {
     const { drizzle, drizzleState } = this.props;
-    const contract = drizzle.contracts.SeabyBase;
+    const contract = drizzle.contracts.Auction;
     
     // let drizzle know we want to call the `set` method with `value`
 
-    console.log("name:", name);
     const stackId = contract.methods["createRandomSeaby"].cacheSend(name, {
       from: drizzleState.accounts[0],
       gas: 3000000
     });
-    
     // save the `stackId` for later reference
     this.setState({ stackId });
   };

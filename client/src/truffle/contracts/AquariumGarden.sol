@@ -63,7 +63,7 @@ contract AquariumGarden is Ownable {
         }
     }
     function getFeaturesById(uint _seabyId) public view returns (uint16[] memory) {
-        require(msg.sender == SeabyToOwner[_seabyId]);
+        //require(msg.sender == SeabyToOwner[_seabyId]);
         uint16[] memory _features = new uint16[](_numberOfFeatures);
         for (uint8 i = 0; i < _numberOfFeatures; i++) {
             _features[i] = seabies[_seabyId].features[i];
@@ -74,16 +74,8 @@ contract AquariumGarden is Ownable {
     function _generateRandomFeatures() internal view returns (uint16) {
         // uint rand = uint(keccak256(_str));
         uint8 randNonce = 3;//should be a seed of random number
-        uint random = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 100;//0-100 random number
-        if (random <= 33){
-            return 1;
-        }
-        else if(random > 33 && random <= 67) {
-            return 2;
-        }
-        else{
-            return 3;
-        }
+        uint random = uint(keccak256(abi.encodePacked(now, msg.sender, randNonce))) % 3;//0-100 random number
+        return uint16(random);
     }
     // A return function that will generate a new Seaby by calling _createSeaby function and return an array of features
     function createRandomSeaby(string memory _name) public {
@@ -105,6 +97,6 @@ contract AquariumGarden is Ownable {
             delete seabyAllowedBreedToAddress[_seabyId];
             delete seabyApprovals[_seabyId];
         }
-        //emit TransferFinish(_from,_to,_seabyId);
+        emit TransferFinish(_from,_to,_seabyId);
     }
 }
