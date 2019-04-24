@@ -38,6 +38,7 @@ class Card extends Component {
 
     const stackId = contract.methods["buy"].cacheSend(this.state.id, {
       from: drizzleState.accounts[0],
+      value: 1,
       gas: 3000000
     });
     // save the `stackId` for later reference

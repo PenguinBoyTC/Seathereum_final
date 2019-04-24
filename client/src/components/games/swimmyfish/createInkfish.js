@@ -1,8 +1,13 @@
 import inkfish from '../../../images/inkfish.png';
+import octopus from '../../../images/octopus.png';
+import turtle from '../../../images/turtle.png';
 import {loadImage} from '../../../util/loaders';
+const images = [inkfish, octopus, turtle];
+
 
 const createInkfish = ({width, height}) => {
-  return loadImage(inkfish).then((image) => {
+  
+  return loadImage(octopus).then((image) => {
     const halfway = height / 2;
     const {width: w, height: h} = image;
     return {

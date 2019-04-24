@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import {DrizzleContext} from 'drizzle-react';
 import inkfish from '../../../images/inkfish.png';
+import octopus from '../../../images/octopus.png';
+import turtle from '../../../images/turtle.png';
 
 class Inkfish extends Component {
+
+
   mounted = false;
   constructor(props) {
     super(props);
@@ -35,4 +40,13 @@ class Inkfish extends Component {
   }
 }
 
-export default Inkfish;
+export default () => (
+  <DrizzleContext.Consumer>
+    {(drizzleContext) => {
+      const {drizzle, drizzleState, initialized} = drizzleContext;
+      if (initialized)
+        return <Inkfish drizzle={drizzle} drizzleState={drizzleState} />;
+      else return 'Loading...';
+    }}
+  </DrizzleContext.Consumer>
+);

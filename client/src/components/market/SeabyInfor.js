@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Modal from "react-awesome-modal";
 //npm i -S react-awesome-modal
 
-class Purchasing extends Component {
+class SeabyInfor extends Component {
   state = {
     name: this.props.name,
     birthTime: this.props.birthTime, //in millisecond
@@ -58,4 +58,4 @@ class Purchasing extends Component {
   }
 }
 
-export default Purchasing;
+export default SeabyInfor;
