@@ -8667,7 +8667,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-04-22T05:07:58.444Z",
+  "updatedAt": "2019-05-02T00:58:06.695Z",
   "devdoc": {
     "methods": {
       "transferOwnership(address)": {

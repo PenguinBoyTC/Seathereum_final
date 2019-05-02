@@ -5801,12 +5801,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x4bDE8fbaDd136583Dc004411c5406C2052a710c6",
-      "transactionHash": "0xd8315c5ee38dc5f81b4148040afb18ad57a9e9585b97c4e041e5b7f8abbd3a86"
+      "address": "0xeD9A5DdB4Bd2f438199d74Dce1c5BF663a4f5515",
+      "transactionHash": "0xe870d468e6b1ce0c07083feaf82af04bff136b6bf7a57f01d4334f7b66dff3e0"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-04-22T05:07:59.756Z",
+  "updatedAt": "2019-05-02T00:58:08.296Z",
   "devdoc": {
     "methods": {
       "transferOwnership(address)": {

@@ -3,7 +3,7 @@ import React from "react";
 import {DrizzleContext} from 'drizzle-react';
 
 class Generator extends React.Component {
-  state = { stackId: null };
+  state = { stackId: null, nameBox: null };
   // componentDidUpdate() {
     
   //   const { drizzle, drizzleState } = this.props;
@@ -14,10 +14,14 @@ class Generator extends React.Component {
   //   }
   //   //console.log("state2:", drizzleState.contract.Auction.events);
   // }
-  handleKeyDown = e => {
+  handleChange = e => {
+    this.setState({nameBox: e.target.value});
+  };
+  handleClick = () => {
     // if the enter key is pressed, set the value with the string
-    if (e.keyCode === 13) {
-      this.createRandomSeaby(e.target.value);
+    var value = this.state.nameBox;
+    if (value) {
+      this.createRandomSeaby(value);
     }
   };
 
@@ -51,9 +55,14 @@ class Generator extends React.Component {
   render() {
     return (
       <div>
-        <h2>Give your creature a name:</h2>
-        <input type="text" onKeyDown={this.handleKeyDown} />
-        <div>{this.getTxStatus()}</div>
+        <center>
+          <h2>Give your creature a name:</h2>
+          <input type="text" onChange={this.handleChange}/>
+          <p>
+            <button className="btn btn-primary my-2" onClick={this.handleClick}>Create</button>
+          </p>
+          <div>{this.getTxStatus()}</div>
+        </center>
       </div>
     );
   }

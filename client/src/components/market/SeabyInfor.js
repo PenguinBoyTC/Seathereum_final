@@ -33,7 +33,6 @@ class SeabyInfor extends Component {
     // console.log("forSale", this.state.price);
     return (
       <section>
-        <h1> </h1>
         <input type="button" value="Open" onClick={() => this.openModal()} />
         <Modal
           visible={this.state.visible}
@@ -43,11 +42,11 @@ class SeabyInfor extends Component {
           onClickAway={() => this.closeModal()}
         >
           <div>
-            <p>Creature Contents</p>
-            <h1>Creature Name: {this.state.name}</h1>
-            <h2>Birthday: {localTime}</h2>
-            <h3>Generation: {this.state.generation}</h3>
-            <h4>Now : ${this.state.price}</h4>>
+            <h4>Creature Contents</h4>
+            <p>Name: {this.state.name}</p>
+            <p>Birthday: {localTime}</p>
+            <p>Generation: {this.state.generation}</p>
+            <p>Now : ${this.state.price}</p>
             <a href="javascript:void(0);" onClick={() => this.closeModal()}>
               Close
             </a>
