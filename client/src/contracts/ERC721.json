@@ -125,9 +125,9 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "pragma solidity ^0.5.0;\n// ERC 721 interface\n\ncontract ERC721 {\n\n    // returns the number of tokens owned by _owner\n    function balanceOf(address _owner) public view returns(uint);\n\n    // returns the address (owner) of a token\n    function ownerOf(uint _tokenId) public view returns(address);\n\n    // grants ownership of token\n    function transfer(address _to, uint _tokenId) public;\n\n    // affirms the address for a token\n    function approve(address _to, uint _tokenId) public;\n\n    // emits when ownership of a token is altered by any means even creation and\n    // destruction\n    event Transfer(\n        address indexed from,\n        address indexed to,\n        uint indexed tokenId\n    );\n\n    // emits when the approved address of a token is changed or affirmed\n    event Approval(\n        address indexed owner,\n        address indexed approved,\n        uint indexed tokenId\n    );\n}",
-  "sourcePath": "/home/josh/projects/Seathereum/client/src/truffle/contracts/ERC721.sol",
+  "sourcePath": "/home/josh/projects/Seathereum/truffle/contracts/ERC721.sol",
   "ast": {
-    "absolutePath": "/home/josh/projects/Seathereum/client/src/truffle/contracts/ERC721.sol",
+    "absolutePath": "/home/josh/projects/Seathereum/truffle/contracts/ERC721.sol",
     "exportedSymbols": {
       "ERC721": [
         576
@@ -690,7 +690,7 @@
     "src": "0:896:2"
   },
   "legacyAST": {
-    "absolutePath": "/home/josh/projects/Seathereum/client/src/truffle/contracts/ERC721.sol",
+    "absolutePath": "/home/josh/projects/Seathereum/truffle/contracts/ERC721.sol",
     "exportedSymbols": {
       "ERC721": [
         576
@@ -1258,7 +1258,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-05-04T19:25:47.160Z",
+  "updatedAt": "2019-05-04T20:17:29.289Z",
   "devdoc": {
     "methods": {}
   },

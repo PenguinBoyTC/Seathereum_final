@@ -3,14 +3,6 @@ import UserCard from './UserCard';
 import wave from '../../images/wave.png';
 import {DrizzleContext} from 'drizzle-react';
 
-const text = {
-  color: '#11426a'
-};
-
-const headerbg = {
-  backgroundColor: '#1dc5da'
-};
-
 class UserCards extends Component {
   state = {dataKey: null};
   componentDidMount() {
@@ -42,8 +34,18 @@ class UserCards extends Component {
     } else {
       const values = getAllSeabies.value === null ? [] : getAllSeabies.value;
       return (
-        <div className="container" style={text}>
-          <div className="Header" style={headerbg}>
+        <div
+          className="container"
+          style={{
+            color: '#11426a'
+          }}
+        >
+          <div
+            className="Header"
+            style={{
+              backgroundColor: '#1dc5da'
+            }}
+          >
             <img
               className="wave"
               src={wave}
