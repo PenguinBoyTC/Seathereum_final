@@ -85,5 +85,3 @@ typings/
 .vscode
 
 .tern-port
-
-truffle/*
