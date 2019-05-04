@@ -8,7 +8,7 @@ class Navbar extends Component {
   componentDidMount() {
     const {drizzle} = this.props;
     const contract = drizzle.contracts.Auction;
-    const dataKey = contract.methods["owner"].cacheCall();
+    const dataKey = contract.methods['owner'].cacheCall();
     this.setState({dataKey});
     // console.log("test",process.env.REACT_APP_OWNER_ADDRESS);
     // console.log("drizzleState.accounts[0]",drizzleState.accounts[0]);
@@ -19,16 +19,17 @@ class Navbar extends Component {
     // ) {
     //   navs.push('admin');
     // }
-    
   }
   render() {
-    const { Auction } = this.props.drizzleState.contracts;
+    const {Auction} = this.props.drizzleState.contracts;
     // using the saved `dataKey`, get the variable   we're interested in
     const owner = Auction.owner[this.state.dataKey];
     if (!owner) {
       return <p>"Loading Seaby..."</p>;
-    }
-    else if (owner.value === this.props.drizzleState.accounts[0] && navs.length == 5) {
+    } else if (
+      owner.value === this.props.drizzleState.accounts[0] &&
+      navs.length === 5
+    ) {
       navs.push('admin');
     }
     return (

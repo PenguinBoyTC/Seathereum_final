@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Modal from "react-awesome-modal";
+import React, {Component} from 'react';
+import Modal from 'react-awesome-modal';
 //npm i -S react-awesome-modal
 
 class SeabyInfor extends Component {
@@ -47,9 +47,7 @@ class SeabyInfor extends Component {
             <p>Birthday: {localTime}</p>
             <p>Generation: {this.state.generation}</p>
             <p>Now : ${this.state.price}</p>
-            <a href="javascript:void(0);" onClick={() => this.closeModal()}>
-              Close
-            </a>
+            <button onClick={() => this.closeModal()}>Close</button>
           </div>
         </Modal>
       </section>

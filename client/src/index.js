@@ -14,7 +14,7 @@ import Auction from './truffle/build/contracts/Auction.json';
 const options = {
   contracts: [Auction],
   // web3: {fallback: {type: 'ws', url: 'ws://45.56.124.155:7545'}}
-  web3: {fallback: {type: 'ws', url: 'ws://127.0.0.1:7545'}}
+  web3: {fallback: {type: 'ws', url: 'ws://127.0.0.1:8545'}}
 };
 
 const store = generateStore(options);

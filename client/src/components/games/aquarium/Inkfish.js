@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
 import {DrizzleContext} from 'drizzle-react';
 import inkfish from '../../../images/inkfish.png';
-import octopus from '../../../images/octopus.png';
-import turtle from '../../../images/turtle.png';
 
 class Inkfish extends Component {
-
-
   mounted = false;
   constructor(props) {
     super(props);
